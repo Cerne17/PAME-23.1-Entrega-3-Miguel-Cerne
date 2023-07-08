@@ -1,73 +1,196 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+ENTREGA 3:
+    
+    Esta entrega consiste de um banco de dados a ser usado para o cliente
+    TendTudo, uma empresa do setor de vendas que quer expandir para o
+    mercado online.
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+----------------------------------
+CRIAÇÃO DO PROJETO
+    
+    Para esse projeto, utilizaremos uma framework de backend com base
+    em Typescript: a Nest.js.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+    Para inicializar um projeto em Nest.js inserimos as seguintes linhas
+    de código no terminal:
+        1. npm i -g @nestjs/cli
+        2. nest new <project-name>
 
-## Description
+    Assim, inicializaremos um servidor backend na máquina local, situado
+    na porta de acesso de número 3000 (http://localhost:3000/)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+----------------------------------
+INICIALIZAÇÃO DO PROJETO
+    
+    Depois da criação do projeto, uma pasta foi criada no diretório de
+    criação do projeto. Para trabalhar nela, devemos entrar na mesma:
+        cd tend-tudo
+    
+    Depois de entrar no diretório do projeto, devemos inicializá-lo:
+        npm run start (depois de pressionar enter para confirmar a
+        inicialização, o projeto será inicializado)
 
-## Installation
+    Outra opção é um código semelhante:
+        npm run start:dev (ajuda na construção do aplicativo em tempo real,
+        já que vigia por mudanças e automaticamente recompila o código.)    
+    
+    Se a inicialização tiver sido bem-sucedida, ao entrarmos no link da
+    porta de acesso 3000, deverá aparecer uma mensagem de 'Hello World!'
+    em uma tela branca.
 
-```bash
-$ npm install
-```
+    OBS: Para finalizarmos o servidor local, basta digitar CTRL+C no terminal
+    e confirmar a ação de finalização.
 
-## Running the app
+----------------------------------
+INSTALAÇÃO DE BIBLIOTECAS E DEPENDÊNCIAS
 
-```bash
-# development
-$ npm run start
+    Dentro do diretório do projeto, podemos inicializar o editor de texto.
 
-# watch mode
-$ npm run start:dev
+    1. sqlite3
+    Esse é o tipo de banco de dados que vamos estar criando. O sqlite3 é um
+    banco de dados de formato mais simples, ótimo para começarmos o estudo
+    na área de backend development.
 
-# production mode
-$ npm run start:prod
-```
+        npm install sqlite3 --save
+            (--save inclui essa biblioteca no arquivo package.json)
+    
+    2. typeorm
+    Essa biblioteca é responsável pela interação do banco de dados com o Nest
 
-## Test
+        npm install @nestjs/typeorm typeorm
 
-```bash
-# unit tests
-$ npm run test
+----------------------------------
+SIMULAÇÃO DO FRONT-END
 
-# e2e tests
-$ npm run test:e2e
+    Como o front-end deste projeto não está pronto e necessita diretamente,
+    do banco de dados para funcionar, devemos simular o front-end e suas
+    requisições para configurarmos o banco de dados. Para isso, utilizamos o
+    aplicativo Insomnia, o que facilita a visualização, em tempo real, do
+    banco de dados e de todas suas requisições.
 
-# test coverage
-$ npm run test:cov
-```
+----------------------------------
+HTTP (HYPER TEXT TRANSFER PROTOCOL): SEUS MÉTODOS E VERBOS
 
-## Support
+    Para o fluxo de informações entre o backend e o frontend, utilizamos o
+    protocolo http, que nos fornece mais segurança no tráfetgo de informações.
+    Esse protocolo tem alguns métodos (para utilizar esses métodos, utilizamos
+    "verbos", que são, basicamente, funções):
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+        Create -> post
+        Read   -> get
+        Update -> patch/put
+        Delete -> delete
 
-## Stay in touch
+        (a abreviação dos métodos cria a famosa sigla: C.R.U.D.)
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+    OBS: Há uma tênue diferença entre Patch e Put:
+        O Patch recebe por argumento o objeto inteiro a ser atualizado, tendo
+        que passar por todas suas informações e sobrescrevendo uma a uma. Por
+        outro lado, o verbo put permite passar somente um atributo do objeto a
+        ser modificado.
+        Ou seja, por um lado, o put tem uma complexidade menor, visto que somente
+        sobrescreve um atributo, mas - por outro lado - o verbo patch tem uma maior
+        flexibilidade, como permite que alteremos mais de um atributo em somente um
+        request.
 
-## License
+----------------------------------
+EXPLICAÇÃO BÁSICA DA ARQUITETURA DO PROJETO
 
-Nest is [MIT licensed](LICENSE).
+    Dentro da pasta src, temos alguns arquivos por padrão, dentre eles temos:
+
+    1. main.ts:
+        bootstrap() -> Liga as funcionalidades do código, dá run no projeto.
+
+    2. app.module.ts:
+        Configura o banco de dados.
+        função @Module, dentro dela temos:
+
+            imports: declaramos toda importação de bibliotecas utilizadas
+
+            controllers: gere rotas
+
+            providers: manipulação e interpretação dos dados
+    
+    3. app.service.ts:
+        função @Injectable: chamada dentro de controller, com o método get
+
+    4. app.controller.ts:
+        Dentro desse arquivo, criamos as lógicas para cada tipo de request da CRUD.
+        Declaramos todos os decoradores: post, get, patch, put e delete.
+        Isto é, fazemos a criação da formatação de nosso banco de dados.
+
+----------------------------------
+CRIANDO ENTIDADES E TABELAS
+
+    Para criarmos entidades e tabelas, finalizamos a instância atual do nosso
+    banco de dados e inserimos o seguinte comando:
+
+        nest generate resource user (nesse caso, criamos uma entidade com o nome 'user')
+        ou: nest -g resource user
+
+            Nesse momento escolhemos o tipo da nossa entidade:
+                - REST API
+                - GraphQL (code first)
+                - GraphQL (schema first)
+                - Microservice (non-HTTP)
+                - webSockets
+            (Neste caso, criaremos entidades de tipo 'REST API')
+
+            Depois, podemos escolher se o nest já pode inicializar os pontos de entrada
+            do CRUD (Escolhemos sim, para adiantar o trabalho)
+
+    Depois dessa inicialização na entidade, uma pasta com nome de 'user' é adicionada ao 
+    diretório 'src'. Dentro dessa pasta, vamos configurar a entidade 'user'.
+
+----------------------------------
+PARA CADA ENTIDADE TEMOS:
+
+    1. Uma pasta dto (data transfer object): 
+        A forma de passar informação entre JS/TS e JSON
+
+    2. Uma pasta entities:
+        Usada para exportar a classe '<nome-da-entidade>'
+    
+    3. <nome-da-entidade>.controller.spec.ts
+
+    
+    4. <nome-da-entidade>.controller.ts
+
+    5. <nome-da-entidade>.module.ts
+
+    6. <nome-da-entidade>service.spec.ts
+
+    7. <nome-da-entidade>.service.ts
+
+----------------------------------
+CONFIGURANDO A ENTIDADE
+
+    Depois de instanciarmos uma entidade, é necessário que
+    configuremos ela, assim como configuramos o app em si.
+
+    Para essa parte, utilizaremos como exemplo a configuração
+    da entidade 'user':
+
+    1. Configuração do arquivo module (imports)
+        Nesse caso, só importamos a entidade de 'user'
+    
+    2. A Entidade em si -> user.entity.ts:
+    
+
+----------------------------------
+ENTIDADES DO PROJETO
+
+    Para a realização do projeto da TendTudo, vamos necessitar de duas entidades:
+
+    1. USER (ou usuário):
+        - id
+        - username (ou usuário)
+        - type (ou tipo)
+        - atributos extras
+    
+    2. PRODUCT (ou produto):
+        - id
+        - type (ou tipo) -> blusa, calça, calçado, dentre outros
+        - price (ou preço)
+        - size (ou tamanho) -> varia sua forma para cada tipo de produto
+        - quantity (ou quantidade)
+        - atributos extras
