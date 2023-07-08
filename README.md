@@ -174,7 +174,44 @@ CONFIGURANDO A ENTIDADE
         Nesse caso, só importamos a entidade de 'user'
     
     2. A Entidade em si -> user.entity.ts:
-    
+        Cria as colunas da tabela de user
+
+    3. DTO (data transfer object):
+        Serve para transformar um objeto do TS/JS em um JSON. É aqui que
+        configuramos as padronizações de como um objeto deve ser traduzido
+        para um JSON. Engloba os dois métodos possíveis de um JSON: create
+        e update.
+
+        A. create-user.dto.ts:
+            Explicitamos que informações são necessárias para a criação de
+            uma entidade, criamos também, convenções de valores padrões caso
+            existam. Aqui, fica claro que atributos da entidade precisam ser
+            passados pelo fronter para a instanciação de uma entidade (nem
+            todos atributos precisam ser passados -> exemplos: createdAt/id)
+
+    4. Criação das funções de rotas
+
+        A. user.controller.ts
+            Nesse arquivo, criamos os algoritmos executados, quando temos um
+            pedido do frontend. Ou seja, quando utilizamos o verbo 'get' do http,
+            o que é suposto que aconteça? Criamos essas funções dentro de 
+            user.controller.ts para o caso de ser uma requesição para a entidade
+            user. Devemos fazer o mesmo procedimento para todas outras entidades.
+
+            Como argumentos dos decoradores desse arquivo, temos como passar uma
+            rota ou um argumento de função em si:
+                Exemplo:
+                @Controller('user') -> significa que a rota (endereço da página)
+                deve terminar com '/user' para executarmos essa função
+                @Controller(':id') -> significa que a função englobada pelo
+                decorador vai ter 'id' como parâmetro
+        
+        B. user.service.ts
+            O arquivo user.controller.ts usa as funções de user.service.ts para
+            executar os protocolos http. Ou seja, as funcionalidades pesadas, são
+            criadas dentro desse arquivo.
+            Dentro desse arquivo, devemos injetar o repositório em si. Isto é, 
+            importamos a tabela de 'users'.
 
 ----------------------------------
 ENTIDADES DO PROJETO

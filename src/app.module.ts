@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { UserModule } from './user/user.module';
       autoLoadEntities: true, // Carrega automaticamente as entidades criadas para o arraya de entidades.
     }),
     UserModule,
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
