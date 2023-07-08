@@ -9,9 +9,9 @@ export class Product {
   productname: string;
   @Column()
   type: string;
-  @Column()
+  @Column({ nullable: true })
   size: string;
-  @Column()
+  @Column({ nullable: true })
   quantity: number;
   @Column()
   createdAt: Date;

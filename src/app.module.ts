@@ -12,7 +12,7 @@ import { ProductModule } from './product/product.module';
       database: 'db',
       entities: [], // Ir preenchendo conforme entidades são adicionadas no banco de dados
       synchronize: true, // Ao alterar alguma entidade, as alterações são passadas, automaticamente para o banco de dados
-      autoLoadEntities: true, // Carrega automaticamente as entidades criadas para o arraya de entidades.
+      autoLoadEntities: true, // Carrega automaticamente as entidades criadas para o array de entidades.
     }),
     UserModule,
     ProductModule,
