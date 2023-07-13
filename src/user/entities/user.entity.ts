@@ -7,7 +7,9 @@ export class User {
   @Column()
   username: string;
   @Column()
-  type: string;
+  password: string;
   @Column()
+  isClient: boolean; // Indica se é um funcionário ou um cliente (true: cliente/ false: funcionario)
+  @Column({ nullable: true })
   createdAt: Date;
 }

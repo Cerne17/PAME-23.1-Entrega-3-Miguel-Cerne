@@ -3,4 +3,5 @@ export class CreateProductDto {
   type: string;
   size: string;
   quantity: number;
+  // Incluir indicação de que filial tem o produto
 }
